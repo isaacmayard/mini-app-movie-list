@@ -26,19 +26,37 @@ function App() {
     }
   };
 
+  const handleFave = (event) => {
+    event.currentTarget.classList.toggle("active");
+    console.log(event);
+  };
   return (
     <div className="App">
       <header className="App-header">
         {searchData.length
           ? searchData.map((movie, index) =>
               movie.title ? (
-                <p key={index}>Title: {movie.title}</p>
+                <p key={index}>
+                  Title: {movie.title}{" "}
+                  <button
+                    className="favorite-button"
+                    onClick={handleFave}
+                  ></button>
+                </p>
               ) : (
                 <p>{searchData}</p>
               )
             )
           : data.map((movie, index) => {
-              return <p key={index}>Title: {movie.title}</p>;
+              return (
+                <p key={index}>
+                  Title: {movie.title}{" "}
+                  <button
+                    className="favorite-button"
+                    onClick={handleFave}
+                  ></button>
+                </p>
+              );
             })}
         <input
           type="text"

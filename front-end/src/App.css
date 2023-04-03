@@ -16,3 +16,16 @@
 .App-link {
   color: #61dafb;
 }
+
+.favorite-button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.favorite-button.active {
+  background-color: red;
+}

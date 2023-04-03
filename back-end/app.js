@@ -19,8 +19,8 @@ app.post("/titles", (req, res) => {
 });
 
 app.delete("/titles", async (req, res) => {
-  const data = await controllers.deleteMovie(req.body.title)
-  res.status(200).send({MSG: `${data}`});
+  const data = await controllers.deleteMovie(req.body.title);
+  res.status(200).send({ MSG: `${data}` });
 });
 
 module.exports = app;
