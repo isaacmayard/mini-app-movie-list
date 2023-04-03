@@ -1,7 +1,9 @@
-import "./App.css";
+import "../App.css";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function App() {
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState([]);
@@ -46,6 +48,9 @@ function App() {
         <button type="button" onClick={handleClick}>
           Submit
         </button>
+        <h4 onClick={() => navigate("/edit")}>
+          Click here to add/delete movies!
+        </h4>
       </header>
     </div>
   );
