@@ -1,22 +1,19 @@
 import logo from "./logo.svg";
 import "./App.css";
-import React from "react";
-
-const movies = [
-  { title: "Mean Girls" },
-  { title: "Hackers" },
-  { title: "The Grey" },
-  { title: "Sunshine" },
-  { title: "Ex Machina" },
-];
+import React, { useEffect, useState } from "react";
 
 function App() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:8080/titles")
+      .then((res) => res.json())
+      .then((titles) => setData(titles));
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        {movies.map((movie, index) => {
-          console.log(movie.title);
+        {data.map((movie, index) => {
           return <p key={index}>Title: {movie.title}</p>;
         })}
       </header>
